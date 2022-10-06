@@ -5,7 +5,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -28,7 +28,7 @@ public class FiniteWater {
 
     private void isInfinite(BlockEvent.CreateFluidSourceEvent e) {
         Fluid fluid = e.getState().getFluidState().getType();
-        Holder<Biome> biome = e.getWorld().getBiome(e.getPos());
+        Holder<Biome> biome = e.getLevel().getBiome(e.getPos());
         if (!FiniteWaterUtils.formWaterSource(fluid, biome)){
             e.setResult(Event.Result.DENY);
         }

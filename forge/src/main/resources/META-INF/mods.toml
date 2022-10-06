@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[39,)"
+loaderVersion="[43,)"
 issueTrackerURL="https://github.com/Trinsdar/FiniteWater/issues"
 license="LGPL-v3"
 
@@ -16,12 +16,12 @@ description='''Makes water no longer infinite if not in water type biomes'''
 [[dependencies.finitewater]]
     modId="forge"
     mandatory=true
-    versionRange="[39,)"
+    versionRange="[43,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.finitewater]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18,]"
+    versionRange="[1.19.2,]"
     ordering="NONE"
     side="BOTH"
