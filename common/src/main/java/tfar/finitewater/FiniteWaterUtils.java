@@ -1,10 +1,14 @@
 package tfar.finitewater;
 
+import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import tfar.finitewater.config.ConfigHandler;
+
+import java.io.File;
+import java.nio.file.Path;
 
 public class FiniteWaterUtils {
     public static boolean isWaterInfinite(Holder<Biome> biome) {
@@ -19,5 +23,10 @@ public class FiniteWaterUtils {
             }
         }
         return form;
+    }
+
+    @ExpectPlatform
+    public static Path getConfigDir(){
+        throw new AssertionError();
     }
 }

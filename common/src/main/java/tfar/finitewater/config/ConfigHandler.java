@@ -2,6 +2,7 @@ package tfar.finitewater.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import tfar.finitewater.FiniteWaterUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,12 +23,8 @@ public class ConfigHandler {
         if (file != null) {
             return false;
         }
-        File configDirectory = new File(".", "config");
-        file = new File(configDirectory, "finitewater.json");
-        if (file.exists()){
-            return false;
-        }
-        return true;
+        file = new File(FiniteWaterUtils.getConfigDir().toFile(), "finitewater.json");
+        return !file.exists();
     }
 
     public Config getConfig() {
@@ -69,7 +66,7 @@ public class ConfigHandler {
         try (FileWriter fileWriter = new FileWriter(file)) {
             fileWriter.write(jsonString);
         } catch (IOException e) {
-            System.err.println("Couldn't save ore configuration file for gt4r");
+            System.err.println("Couldn't save ore configuration file for finite water");
             e.printStackTrace();
         }
     }
